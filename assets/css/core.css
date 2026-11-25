@@ -164,6 +164,9 @@ body.dp-open{overflow:hidden}
 .fr-top{display:flex;justify-content:space-between;gap:1rem;align-items:start}
 .fr h3{font-family:var(--f-room,var(--f-body));font-weight:var(--room-w,500);font-size:1.4rem;line-height:1.2}
 .fr-meta{color:var(--c-muted);font-size:.9rem}
+.meta-ic{display:flex;flex-wrap:wrap;gap:.35rem 1rem;list-style:none;padding:0;margin:0}
+.meta-ic li{display:inline-flex;align-items:center;gap:.4rem}
+.meta-ic svg{width:1.05rem;height:1.05rem;flex:none;color:var(--c-accent-text)}
 .fr-inc{display:flex;flex-wrap:wrap;gap:.25rem 1rem;font-size:.85rem;color:var(--c-accent-text)}
 .fr-inc span,.ticks li{display:flex;align-items:center;gap:.4rem}
 .fr-inc svg,.ticks svg,.btn svg,.link svg,.crumbs svg{width:1.1em;height:1.1em;flex:none}
