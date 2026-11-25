@@ -129,7 +129,7 @@ section{position:relative}
 .faq details.qa{border-color:rgba(255,255,255,.2)}
 .faq details.qa summary{color:#fff}
 .faq details.qa p{color:#C9D2CC}
-@media (max-width:900px){.faq-grid{grid-template-columns:1fr}}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr;gap:1rem}}
 
 /* footer: deep green with tile pattern */
 .site-footer{position:relative;overflow:hidden;background:var(--c-accent);color:#fff;padding:5rem 0 2rem}
