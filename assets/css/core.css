@@ -33,7 +33,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btn-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.8)}
 .btn-light:hover{background:#fff;color:var(--c-ink)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-.link{display:inline-flex;gap:.5rem;align-items:center;font-weight:500;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:.2rem;font-size:.9rem;letter-spacing:var(--btn-ls,.02em);text-transform:var(--btn-case,none)}
+.link{display:inline-flex;justify-self:start;align-self:start;width:fit-content;gap:.5rem;align-items:center;font-weight:500;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:.2rem;font-size:.9rem;letter-spacing:var(--btn-ls,.02em);text-transform:var(--btn-case,none)}
 .link:hover{color:var(--c-accent-text)}
 
 /* ---------- header ---------- */
