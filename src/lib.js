@@ -18,7 +18,7 @@ const UI = {
   en: {
     'dp.title': 'Choose your dates', 'dp.prev': 'Previous month', 'dp.next': 'Next month', close: 'Close', 'dp.booked': 'Fully booked', 'dp.stay': 'Your stay',
     'dp.clear': 'Clear', 'dp.apply': 'Apply dates', 'dp.pickIn': 'Choose your arrival date', 'dp.pickOut': 'Now choose your departure date', 'dp.none': 'No dates selected yet',
-    night: 'night', nights: 'nights', guest: 'guest', guests: 'guests', 'flow.chooseRoom': 'Choose a room', 'flow.included': '✓ Breakfast included · ✓ Free cancellation',
+    night: 'night', nights: 'nights', guest: 'guest', guests: 'guests', 'flow.chooseRoom': 'Choose a room', 'flow.included': 'Breakfast included · Free cancellation',
     'flow.ota': 'On booking sites', 'flow.forNights': 'for {n} nights', 'flow.tooMany': 'Too many guests for this room', 'flow.notFree': 'Not available on these dates',
     'flow.selected': 'Selected', 'flow.select': 'Select', 'flow.code': 'Booking code', 'err.required': 'Please fill in this field.', 'err.email': 'Enter a full email address, like name@example.com.',
     'err.phone': 'Enter a phone number with country code, like +34 612 345 678.', 'err.summary': '{n} fields need your attention.', 'form.thanks': 'Thank you, you are on the list.',
@@ -29,7 +29,7 @@ const UI = {
   es: {
     'dp.title': 'Elige tus fechas', 'dp.prev': 'Mes anterior', 'dp.next': 'Mes siguiente', close: 'Cerrar', 'dp.booked': 'Completo', 'dp.stay': 'Tu estancia',
     'dp.clear': 'Borrar', 'dp.apply': 'Aplicar fechas', 'dp.pickIn': 'Elige la fecha de llegada', 'dp.pickOut': 'Ahora elige la fecha de salida', 'dp.none': 'Aún no has elegido fechas',
-    night: 'noche', nights: 'noches', guest: 'huésped', guests: 'huéspedes', 'flow.chooseRoom': 'Elige una habitación', 'flow.included': '✓ Desayuno incluido · ✓ Cancelación gratuita',
+    night: 'noche', nights: 'noches', guest: 'huésped', guests: 'huéspedes', 'flow.chooseRoom': 'Elige una habitación', 'flow.included': 'Desayuno incluido · Cancelación gratuita',
     'flow.ota': 'En webs de reservas', 'flow.forNights': 'por {n} noches', 'flow.tooMany': 'Demasiados huéspedes para esta habitación', 'flow.notFree': 'No disponible en estas fechas',
     'flow.selected': 'Elegida', 'flow.select': 'Elegir', 'flow.code': 'Código de reserva', 'err.required': 'Rellena este campo, por favor.', 'err.email': 'Escribe un email completo, como nombre@ejemplo.com.',
     'err.phone': 'Escribe un teléfono con prefijo, como +34 612 345 678.', 'err.summary': 'Revisa {n} campos, por favor.', 'form.thanks': 'Gracias, ya estás en la lista.',
@@ -43,6 +43,12 @@ const ICON = {
   a11y: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="4.5" r="1.8" fill="currentColor"/><path d="M4.5 8.5 12 10l7.5-1.5M12 10v4.5m0 0L8.5 21M12 14.5 15.5 21"/></svg>',
   cal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>',
   users: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16.5 14.2c2.6.4 4.5 2.7 4.5 5.8"/></svg>',
+  arrowL: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
+  arrowR: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  chevL: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>',
+  chevR: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>',
+  close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>',
   menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>'
 };
 
@@ -136,7 +142,7 @@ function bookBody(site, L) {
 <div class="flow-act" style="margin-top:1.5rem"><button type="button" class="btn btn-primary" data-next="2" data-need-room disabled>${t.continue}</button></div>
 </section>
 <section data-step="2" aria-labelledby="s2h" hidden>
-<button type="button" class="link" data-back>← ${t.backRooms}</button>
+<button type="button" class="link" data-back>${ICON.arrowL}${t.backRooms}</button>
 <h1 id="s2h">${t.details}</h1><p class="lead-s">${t.detailsLead}</p>
 <form data-details novalidate>
 <fieldset class="fieldset"><legend>${t.mainGuest}</legend><div class="fgrid">
@@ -165,7 +171,7 @@ ${extras ? `<fieldset class="fieldset"><legend>${t.addStay}</legend>${extras}</f
 <div class="row"><dt data-s="line"></dt><dd data-s="roomTotal"></dd></div><div class="row"><dt>${t.breakfast}</dt><dd>${t.included}</dd></div><div class="row" hidden><dt>${t.extras}</dt><dd data-s="extras"></dd></div>
 <div class="row total"><dt>${t.total}</dt><dd data-s="total"></dd></div></dl>
 <p class="save" hidden>${t.youSave} <span data-s="save"></span> ${t.vsOta}</p>
-<ul role="list"><li>✓ ${t.perk1}</li><li>✓ ${t.perk2}</li><li>✓ ${t.perk3}</li></ul></aside>
+<ul role="list" class="ticks"><li>${ICON.check}${t.perk1}</li><li>${ICON.check}${t.perk2}</li><li>${ICON.check}${t.perk3}</li></ul></aside>
 </div>`;
 }
 

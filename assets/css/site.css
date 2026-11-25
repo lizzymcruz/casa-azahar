@@ -201,3 +201,5 @@ html.a-contrast .hood,html.a-contrast .others{background:#fff}
 html.a-contrast .hero-shade{background:rgba(0,0,0,.8)}
 .two-up .rc-img{aspect-ratio:16/9}
 .faq details.qa[open] summary::after{background-color:var(--c-orange);border-color:var(--c-orange)}
+.summary .save{display:block;background:#FBEFE7;color:#7A3412}
+.tag-soft{color:#fff}

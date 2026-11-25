@@ -95,7 +95,7 @@ function home(L) {
 <ul class="walks" role="list" data-stagger>${t.walks.map(([n, d]) => `<li>${PIN}<span>${n}</span><b class="mono">${d}</b></li>`).join('')}</ul></div></div></section>
 
 <section class="bf" aria-labelledby="bf-h"><div class="bf-img" data-open>${pic('breakfast', t.bfAlt, { w: 1920, h: 1280 })}</div>
-<div class="wrap bf-in"><div class="bf-card" data-reveal><p class="eyebrow">${t.bfEyebrow}</p>${split(t.bfH, 'h2', 'id="bf-h" class="display-s"')}<p>${t.bfP}</p><a class="link" href="${site.href(L, 'book')}">${t.reserve} →</a></div></div></section>
+<div class="wrap bf-in"><div class="bf-card" data-reveal><p class="eyebrow">${t.bfEyebrow}</p>${split(t.bfH, 'h2', 'id="bf-h" class="display-s"')}<p>${t.bfP}</p><a class="link" href="${site.href(L, 'book')}">${t.reserve}${ARROW}</a></div></div></section>
 
 <section class="reviews wrap" aria-labelledby="rv-h"><p class="eyebrow center">${t.revEyebrow}</p>${split(t.revH, 'h2', 'id="rv-h" class="display-m center"')}
 <div class="rv-box" data-reveal><p class="stars" aria-hidden="true">★★★★★</p><p>${t.revP}</p></div></section>
@@ -118,9 +118,9 @@ function roomsPage(L) {
 function roomPage(L, r) {
   const t = C.t[L], R = C.rooms[L], others = R.filter(x => x.id !== r.id);
   const gal = [r.img, ...others.map(o => o.img), 'breakfast', 'hero'];
-  const body = `<section class="wrap room-head"><p class="crumbs"><a href="${site.href(L, 'rooms')}">← ${t.allRoomsBack}</a></p><p class="mono">${r.access}</p>${split(r.name, 'h1', 'class="display"')}<p class="lead" data-reveal>${r.intro}</p></section>
+  const body = `<section class="wrap room-head"><p class="crumbs"><a href="${site.href(L, 'rooms')}">${L_.ICON.arrowL}${t.allRoomsBack}</a></p><p class="mono">${r.access}</p>${split(r.name, 'h1', 'class="display"')}<p class="lead" data-reveal>${r.intro}</p></section>
 <section class="wrap"><div class="gallery" data-gallery tabindex="0" aria-roledescription="carousel" aria-label="${r.name}, ${gal.length} ${t.photos}"><div class="g-track">${gal.map((g, i) => `<div class="g-slide${i === 0 ? ' is-on' : ''}" role="group" aria-roledescription="slide" aria-label="${i + 1} / ${gal.length}">${pic(g, i === 0 ? r.alt : '', { sizes: '100vw', w: 1920, h: 1080, priority: i === 0, lazy: i > 0 })}</div>`).join('')}</div>
-<div class="g-ui"><span data-g-count aria-live="polite">1 / ${gal.length}</span><button type="button" data-g="-1" aria-label="${L === 'es' ? 'Foto anterior' : 'Previous photo'}">←</button><button type="button" data-g="1" aria-label="${L === 'es' ? 'Foto siguiente' : 'Next photo'}">→</button></div></div></section>
+<div class="g-ui"><span data-g-count aria-live="polite">1 / ${gal.length}</span><button type="button" data-g="-1" aria-label="${L === 'es' ? 'Foto anterior' : 'Previous photo'}">${L_.ICON.chevL}</button><button type="button" data-g="1" aria-label="${L === 'es' ? 'Foto siguiente' : 'Next photo'}">${L_.ICON.chevR}</button></div></div></section>
 <section class="wrap room-main"><div class="room-copy"><p class="eyebrow">${t.theRoom}</p><p class="room-body" data-reveal>${r.body}</p>
 <dl class="facts-grid" data-stagger><div><dt>${t.bedL}</dt><dd>${r.bed}</dd></div><div><dt>${t.sizeL}</dt><dd>${r.size}</dd></div><div><dt>${t.viewL}</dt><dd>${r.view}</dd></div><div><dt>${t.accessL}</dt><dd>${r.access}</dd></div></dl>
 <h2 class="eyebrow">${t.inRoom}</h2><ul class="amen" role="list">${t.amenities.map(a => `<li>${CHECK}${a}</li>`).join('')}</ul>

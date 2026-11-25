@@ -6,6 +6,14 @@
   var T = function (k) { return (S.t && S.t[k]) || k; };
   var $ = function (s, r) { return (r || d).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || d).querySelectorAll(s)); };
+  var IC = {
+    arrowL: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
+    arrowR: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    chevL: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>',
+    chevR: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>',
+    close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+    check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>'
+  };
   var store = {
     get: function (k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
     set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
@@ -90,9 +98,9 @@
     var el = d.createElement('div');
     el.className = 'dp'; el.hidden = true;
     el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', T('dp.title'));
-    el.innerHTML = '<div class="dp-sheet"><div class="dp-head"><button type="button" class="dp-nav" data-dp-prev aria-label="' + T('dp.prev') + '">←</button>' +
-      '<p class="dp-hint" aria-live="polite"></p><button type="button" class="dp-nav" data-dp-next aria-label="' + T('dp.next') + '">→</button>' +
-      '<button type="button" class="dp-close" data-dp-close aria-label="' + T('close') + '">×</button></div>' +
+    el.innerHTML = '<div class="dp-sheet"><div class="dp-head"><button type="button" class="dp-nav" data-dp-prev aria-label="' + T('dp.prev') + '">' + IC.chevL + '</button>' +
+      '<p class="dp-hint" aria-live="polite"></p><button type="button" class="dp-nav" data-dp-next aria-label="' + T('dp.next') + '">' + IC.chevR + '</button>' +
+      '<button type="button" class="dp-close" data-dp-close aria-label="' + T('close') + '">' + IC.close + '</button></div>' +
       '<div class="dp-months"></div><p class="dp-legend"><span><s>23</s> ' + T('dp.booked') + '</span><span><i></i> ' + T('dp.stay') + '</span></p>' +
       '<div class="dp-foot"><p class="dp-sum"></p><div class="dp-act"><button type="button" class="btn btn-ghost" data-dp-clear>' + T('dp.clear') + '</button>' +
       '<button type="button" class="btn btn-primary" data-dp-apply>' + T('dp.apply') + '</button></div></div></div>';
@@ -253,8 +261,8 @@
         var free = rangeFree(r.id, st.in, st.out) && st.guests <= r.max, sel = st.room === r.id;
         out += '<li class="fr' + (sel ? ' is-sel' : '') + (free ? '' : ' is-off') + '"><img src="' + r.thumb + '" alt="' + r.alt + '" width="320" height="240" loading="lazy">' +
           '<div class="fr-b"><div class="fr-top"><h3>' + r.name + '</h3>' + (r.tag && free ? '<span class="tag-soft">' + r.tag + '</span>' : '') + '</div><p class="fr-meta">' + r.meta + '</p>' +
-          '<p class="fr-inc">' + T('flow.included') + '</p><div class="fr-price"><div>' + (free ? '<s>' + T('flow.ota') + ' ' + money(Math.round(r.price * N * OTA)) + '</s><b>' + money(r.price * N) + ' ' + T('flow.forNights').replace('{n}', N) + '</b><small>' + money(r.price) + ' / ' + T('night') + '</small>' : '<b>' + (st.guests > r.max ? T('flow.tooMany') : T('flow.notFree')) + '</b>') + '</div>' +
-          (free ? '<button type="button" class="btn ' + (sel ? 'btn-dark' : 'btn-ghost') + '" data-pick="' + r.id + '" aria-pressed="' + sel + '">' + (sel ? '✓ ' + T('flow.selected') : T('flow.select')) + '<span class="sr"> ' + r.name + '</span></button>' : '') + '</div></div></li>';
+          '<p class="fr-inc">' + T('flow.included').split(' · ').map(function (x) { return '<span>' + IC.check + x + '</span>'; }).join('') + '</p><div class="fr-price"><div>' + (free ? '<s>' + T('flow.ota') + ' ' + money(Math.round(r.price * N * OTA)) + '</s><b>' + money(r.price * N) + ' ' + T('flow.forNights').replace('{n}', N) + '</b><small>' + money(r.price) + ' / ' + T('night') + '</small>' : '<b>' + (st.guests > r.max ? T('flow.tooMany') : T('flow.notFree')) + '</b>') + '</div>' +
+          (free ? '<button type="button" class="btn ' + (sel ? 'btn-dark' : 'btn-ghost') + '" data-pick="' + r.id + '" aria-pressed="' + sel + '">' + (sel ? IC.check + T('flow.selected') : T('flow.select')) + '<span class="sr"> ' + r.name + '</span></button>' : '') + '</div></div></li>';
       });
       list.innerHTML = out;
       $('[data-flow-dates]', flow).textContent = fmt(st.in) + ' – ' + fmt(st.out) + ' · ' + N + ' ' + T('nights') + ' · ' + st.guests + ' ' + T(st.guests === 1 ? 'guest' : 'guests');
