@@ -96,7 +96,7 @@
   /* ---------- date picker (dialog with two months, roving focus grid) ---------- */
   function DatePicker() {
     var el = d.createElement('div');
-    el.className = 'dp'; el.hidden = true;
+    el.className = 'dp'; el.hidden = true; el.setAttribute('data-lenis-prevent', '');
     el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', T('dp.title'));
     el.innerHTML = '<div class="dp-sheet"><div class="dp-head"><button type="button" class="dp-nav" data-dp-prev aria-label="' + T('dp.prev') + '">' + IC.chevL + '</button>' +
       '<p class="dp-hint" aria-live="polite"></p><button type="button" class="dp-nav" data-dp-next aria-label="' + T('dp.next') + '">' + IC.chevR + '</button>' +

@@ -1,5 +1,5 @@
 /* Shared components for the hotel demos. Each site sets the --c-* and --f-* tokens. */
-html{font-size:100%;-webkit-text-size-adjust:100%;scroll-padding-top:6rem}
+html{scrollbar-gutter:stable;font-size:100%;-webkit-text-size-adjust:100%;scroll-padding-top:6rem}
 html[data-text="1"]{font-size:115%}html[data-text="2"]{font-size:130%}html[data-text="3"]{font-size:150%}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--c-bg);color:var(--c-ink);font-family:var(--f-body);font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -124,11 +124,12 @@ body.dp-open{overflow:hidden}
 .dp-row{display:grid;grid-template-columns:repeat(7,1fr)}
 .dp-wd span{text-align:center;font-size:.72rem;color:var(--c-muted);padding:.4rem 0;text-transform:capitalize}
 .dp-day{width:100%;aspect-ratio:1;min-height:2.75rem;border:0;background:transparent;cursor:pointer;font-size:.95rem;border-radius:12px;position:relative}
-.dp-day:hover:not(:disabled){background:var(--c-soft)}
+.dp-day:hover:not(:disabled):not(.is-start):not(.is-end){background:var(--c-soft)}
 .dp-day:disabled{color:var(--c-muted);opacity:.55;cursor:not-allowed}
 .dp-day.is-full{text-decoration:line-through}
 .dp-day.is-in{background:var(--c-soft)}
 .dp-day.is-start,.dp-day.is-end{background:var(--c-accent);color:var(--c-on-accent);font-weight:600}
+.dp-day.is-start:hover,.dp-day.is-end:hover{background:var(--c-accent-hover,var(--c-accent))}
 .dp-legend{display:flex;gap:1.5rem;font-size:.8rem;color:var(--c-muted);margin-top:1rem}
 .dp-legend i{display:inline-block;width:.9rem;height:.9rem;background:var(--c-soft);vertical-align:-.1rem;margin-right:.25rem}
 .dp-foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--c-line);margin-top:1rem;padding-top:1rem}

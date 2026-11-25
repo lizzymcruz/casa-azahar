@@ -17,6 +17,8 @@
     if (window.Lenis) {
       lenis = new Lenis({ duration: 1.1, smoothWheel: true });
       lenis.on('scroll', ScrollTrigger.update);
+      /* freeze the page behind the date picker and mobile menu */
+      new MutationObserver(function () { if (!lenis) return; var b = document.body.classList; (b.contains('dp-open') || b.contains('menu-open')) ? lenis.stop() : lenis.start(); }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
       gsap.ticker.add(function (t) { lenis && lenis.raf(t * 1000); });
       gsap.ticker.lagSmoothing(0);
       $$('a[href^="#"]').forEach(function (a) { a.addEventListener('click', function (e) { var id = a.getAttribute('href'); if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -80 }); } }); });
