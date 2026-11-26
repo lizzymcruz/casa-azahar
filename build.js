@@ -66,7 +66,7 @@ const hotelLD = (L) => ({
 const faqLD = (L) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: C.t[L].faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) });
 const crumbs = (L, items) => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([n, k], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: site.domain + site.href(L, k) })) });
 
-const roomCard = (L, r, t) => `<li class="room-card"><a href="${site.href(L, 'room-' + r.id)}"><div class="rc-img reveal-img">${pic(r.img, r.alt, { sizes: '(min-width: 900px) 30vw, 100vw', w: 1280, h: 1600 })}${r.tag ? `<span class="tag">${r.tag}</span>` : ''}</div>
+const roomCard = (L, r, t) => `<li class="room-card"><a href="${site.href(L, 'room-' + r.id)}"><div class="rc-img">${pic(r.img, r.alt, { sizes: '(min-width: 900px) 30vw, 100vw', w: 1280, h: 1600 })}${r.tag ? `<span class="tag">${r.tag}</span>` : ''}</div>
 <div class="rc-body"><p class="mono">${r.short}</p><h3>${r.name}</h3>${L_.metaList(r.meta, ['bed', 'area', 'view'], 'meta-ic rc-meta')}<ul class="chips-s" role="list">${r.chips.filter(c => !r.meta.includes(c)).map(c => `<li>${c}</li>`).join('')}</ul>
 <div class="rc-foot"><p class="price"><small>${t.from}</small> <b>€${r.price}</b> <small>${t.perNight}</small></p><span class="arrow-btn" aria-hidden="true">${ARROW}</span></div></div></a></li>`;
 

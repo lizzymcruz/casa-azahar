@@ -141,7 +141,7 @@ body.dp-open{overflow:hidden}
 @media (max-width:700px){.dp{align-items:end;padding:0}.dp-sheet{border-radius:20px 20px 0 0;width:100%;max-height:88vh;padding:1rem 1rem calc(1rem + env(safe-area-inset-bottom))}.dp-months{grid-template-columns:1fr}.dp-act{width:100%}.dp-act .btn{flex:1}}
 
 /* ---------- booking flow ---------- */
-.flow-top{border-bottom:1px solid var(--c-line)}
+.flow-top{border-top:1px solid var(--c-line)}
 .steps-bar{display:flex;gap:clamp(.75rem,3vw,2rem);justify-content:center;padding:0;margin:clamp(1.5rem,3vw,2.25rem) 0 .75rem;counter-reset:s;flex-wrap:wrap}
 .steps-bar li{display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:500;color:var(--c-muted);counter-increment:s}
 .steps-bar li::before{content:counter(s);display:grid;place-items:center;width:1.9rem;height:1.9rem;border-radius:50%;border:1.5px solid currentColor;font-size:.8rem}
@@ -170,6 +170,9 @@ body.dp-open{overflow:hidden}
 .meta-ic{display:flex;flex-wrap:wrap;gap:.35rem 1rem;list-style:none;padding:0;margin:0}
 .meta-ic li{display:inline-flex;align-items:center;gap:.4rem}
 .meta-ic svg{width:1.05rem;height:1.05rem;flex:none;color:var(--c-accent-text)}
+button.link{background:none;border:0;border-bottom:1.5px solid currentColor;border-radius:0;padding:0 0 .2rem;margin:0;color:inherit;cursor:pointer;font:inherit;font-size:.9rem;font-weight:500}
+[data-back]{margin-bottom:1.25rem}
+.btns .link{align-self:center}
 .fr-inc{display:flex;flex-wrap:wrap;gap:.25rem 1rem;font-size:.85rem;color:var(--c-accent-text)}
 .fr-inc span,.ticks li{display:flex;align-items:center;gap:.4rem}
 .fr-inc svg,.ticks svg,.btn svg,.link svg,.crumbs svg{width:1.1em;height:1.1em;flex:none}
