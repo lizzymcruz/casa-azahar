@@ -228,4 +228,5 @@ html.a-contrast .hero-shade{background:rgba(0,0,0,.8)}
  .rl-copy{gap:.85rem}
  .perk-list{gap:1.5rem}
 }
-@media (max-width:820px){.room-main{padding-top:2rem}.room-copy>.eyebrow:first-child{margin-bottom:.5rem}.room-copy>p{margin-top:1rem}}
+.room-copy>.eyebrow:first-child{margin-bottom:.5rem}.room-copy>p{margin-top:1rem}
+.room-main{padding-top:clamp(2rem,4vw,3.5rem)}
