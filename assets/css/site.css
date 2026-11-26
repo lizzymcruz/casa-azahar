@@ -230,3 +230,10 @@ html.a-contrast .hero-shade{background:rgba(0,0,0,.8)}
 }
 .room-copy>.eyebrow:first-child{margin-bottom:.5rem}.room-copy>p{margin-top:1rem}
 .room-main{padding-top:clamp(2rem,4vw,3.5rem)}
+
+/* no outlines on cards and the booking bar: soft shadows separate them from the page instead */
+.bbar,.fr,.summary,.room-card a{border:0}
+.room-card a,.fr{box-shadow:0 16px 36px -24px rgba(31,42,36,.3)}
+.room-card a:hover{box-shadow:0 26px 50px -24px rgba(31,42,36,.38)}
+.room-card-book .bbar{background:var(--c-soft);box-shadow:none}
+.room-card-book .bbar .bf{border-color:rgba(31,42,36,.1)}
