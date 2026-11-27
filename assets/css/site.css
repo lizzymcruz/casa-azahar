@@ -175,7 +175,7 @@ section{position:relative}
 .room-card-book{position:sticky;top:6rem;background:var(--c-card);border:0;border-radius:var(--r-card);padding:1.6rem;box-shadow:0 24px 50px -28px rgba(31,42,36,.3)}
 .rb-price{font-size:2rem;font-weight:600}.rb-price small{font-size:.9rem;font-weight:400;color:var(--c-muted)}
 .rb-inc{display:inline-block;background:#FBEFE7;color:#7A3412;border-radius:999px;font-size:.85rem;font-weight:600;padding:.3rem .8rem;margin:.75rem 0 1.25rem}
-.room-card-book .bbar{grid-template-columns:1fr 1fr;box-shadow:none}
+.room-card-book .bbar{grid-template-columns:repeat(2,minmax(0,1fr));box-shadow:none}
 .room-card-book .bbar .bf{border-bottom:1px solid var(--c-line)}
 .room-card-book .bbar .bf:nth-child(2){border-right:0}
 .room-card-book .bbar .bf:nth-child(3){grid-column:1/-1;border-right:0}
@@ -244,3 +244,4 @@ html.a-contrast .hero-shade{background:rgba(0,0,0,.8)}
 @media (max-width:380px){.logo span{font-size:1.05rem}.logo{gap:.45rem}.lang a{padding-inline:.3rem}}
 @media (max-width:380px){.hdr{gap:.4rem}.logo-mark{width:1.7rem;height:1.7rem}}
 @media (max-width:400px){.room-card-book{padding:1.1rem}}
+@media (max-width:560px){.logo span{font-size:min(1.2rem,5.4vw)}.logo-mark{width:min(1.9rem,8vw);height:min(1.9rem,8vw)}}

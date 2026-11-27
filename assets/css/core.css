@@ -104,7 +104,7 @@ html.a-motion ::view-transition-group(*){animation:none!important}
 .bbar .bf select{border:0;background:transparent;font:inherit;font-size:1.05rem;color:var(--c-ink);padding:0;appearance:none;cursor:pointer;width:100%}
 .bbar .bf svg{width:1.3rem;height:1.3rem;flex:none;color:var(--c-accent-text)}
 .bbar .btn{border-radius:0 var(--r-card) var(--r-card) 0;min-height:100%;padding-inline:2rem}
-@media (max-width:820px){.bbar{grid-template-columns:1fr 1fr}.bbar .bf:nth-child(2){border-right:0}.bbar .bf{border-bottom:1px solid var(--c-line)}.bbar .bf:nth-child(3){grid-column:1/-1;border-right:0}.bbar .btn{grid-column:1/-1;border-radius:0 0 var(--r-card) var(--r-card);min-height:3.5rem}}
+@media (max-width:820px){.bbar{grid-template-columns:repeat(2,minmax(0,1fr))}.bbar .bf:nth-child(2){border-right:0}.bbar .bf{border-bottom:1px solid var(--c-line)}.bbar .bf:nth-child(3){grid-column:1/-1;border-right:0}.bbar .btn{grid-column:1/-1;border-radius:0 0 var(--r-card) var(--r-card);min-height:3.5rem}}
 .sticky-book{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 1rem calc(.75rem + env(safe-area-inset-bottom)) 5rem;background:var(--c-card);border-top:1px solid var(--c-line);box-shadow:0 -8px 24px rgba(20,22,40,.1);transform:translateY(110%);transition:transform .35s}
 .sticky-book.is-on{transform:none}
 .sticky-book small{display:block;color:var(--c-muted);font-size:.8rem}
@@ -183,7 +183,7 @@ button.link{background:none;border:0;border-bottom:1.5px solid currentColor;bord
 .fr-price b{display:block;font-size:1.25rem;font-weight:500}
 .fr-price small{color:var(--c-muted);font-size:.8rem}
 .tag-soft{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--c-highlight);color:var(--c-ink);padding:.3rem .55rem;border-radius:var(--r-tag);white-space:nowrap}
-@media (max-width:640px){.fr{grid-template-columns:1fr}.fr img{min-height:0;aspect-ratio:16/10}}
+@media (max-width:640px){.fr{grid-template-columns:minmax(0,1fr)}.fr img{min-height:0;aspect-ratio:16/10}}
 .summary{position:sticky;top:6rem;background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-card);padding:1.5rem;box-shadow:0 24px 50px -30px rgba(20,22,40,.3)}
 .summary h2{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--c-accent-text);font-weight:600;font-family:var(--f-body)}
 .summary img{aspect-ratio:16/9;object-fit:cover;width:100%;margin:1rem 0;border-radius:calc(var(--r-card) / 2)}
@@ -276,4 +276,11 @@ details.qa p{padding:0 0 1.25rem;color:var(--c-muted);max-width:62ch}
  .bbar select::picker-icon,.flow-bar select::picker-icon{content:"";width:1.1rem;height:1.1rem;background:var(--c-muted);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center/contain no-repeat;transition:rotate .2s}
  .bbar select:open::picker-icon,.flow-bar select:open::picker-icon{rotate:180deg}
 }
-@media (max-width:400px){.bbar .bf{gap:.55rem;padding:.75rem .85rem}.bbar .bf svg{width:1.1rem;height:1.1rem}.bbar .bf small{letter-spacing:.08em}.bbar .bf b{font-size:.98rem;white-space:nowrap}}
+@media (max-width:400px){.bbar .bf{gap:.55rem;padding:.75rem .85rem}.bbar .bf svg{width:1.1rem;height:1.1rem}.bbar .bf small{letter-spacing:.08em}.bbar .bf b{font-size:.98rem}}
+
+.bbar .bf{min-width:0}.bbar .bf>span,.bbar .bf>div{min-width:0}
+@media (max-width:400px){.bbar .bf svg{display:none}.bbar .bf small{letter-spacing:.06em}}
+@media (max-width:400px){.room-card-book .bbar{grid-template-columns:minmax(0,1fr)!important}.room-card-book .bbar .bf{border-right:0!important}}
+/* header controls keep a fixed size on small phones, even with large system text */
+@media (max-width:480px){.lang a{min-width:2.4rem;font-size:13px}.icon-btn{width:2.6rem;height:2.6rem}}
+.fr-top{flex-wrap:wrap}.fr-top>*{min-width:0}
