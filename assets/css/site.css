@@ -237,3 +237,10 @@ html.a-contrast .hero-shade{background:rgba(0,0,0,.8)}
 .room-card a:hover{box-shadow:0 26px 50px -24px rgba(31,42,36,.38)}
 .room-card-book .bbar{background:var(--c-soft);box-shadow:none}
 .room-card-book .bbar .bf{border-color:rgba(31,42,36,.1)}
+@media (max-width:1024px){.room-main{grid-template-columns:minmax(0,1fr)}.room-card-book{min-width:0}}
+/* small phones: keep the header on one line (Book now is in the sticky bar below) */
+@media (max-width:560px){.hdr-r .btn-sm{display:none}.logo span{font-size:1.2rem}.logo-mark{width:1.9rem;height:1.9rem}.hdr-r{gap:.5rem}}
+@media (max-width:560px){.hdr{gap:.75rem}.f-top>*{min-width:0}.f-name{font-size:1.45rem}}
+@media (max-width:380px){.logo span{font-size:1.05rem}.logo{gap:.45rem}.lang a{padding-inline:.3rem}}
+@media (max-width:380px){.hdr{gap:.4rem}.logo-mark{width:1.7rem;height:1.7rem}}
+@media (max-width:400px){.room-card-book{padding:1.1rem}}
